@@ -162,7 +162,7 @@ namespace boost
       typedef thread_attributes attributes;
 
       BOOST_THREAD_MOVABLE_ONLY(thread)
-    private:
+    protected:
 
         struct dummy;
 
