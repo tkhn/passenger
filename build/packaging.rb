@@ -584,7 +584,8 @@ task :fakeroot => [:apache2, :nginx, :doc] do
     ["ext/common/Exceptions.h", "common/Exceptions.h"],
     ["ext/common/Utils/modp_b64.h", "common/Utils/modp_b64.h"],
     ["ext/common/Utils/modp_b64_data.h", "common/Utils/modp_b64_data.h"],
-    ["ext/boost/detail/endian.hpp", "boost/detail/endian.hpp"]
+    ["ext/boost/detail/endian.hpp", "boost/detail/endian.hpp"],
+    ["ext/boost/predef", "boost/predef"]
   ])
   headers.each do |header|
     target = "#{fake_include_dir}/#{header[1]}"
@@ -592,7 +593,7 @@ task :fakeroot => [:apache2, :nginx, :doc] do
     if !File.directory?(dir)
       sh "mkdir -p #{dir}"
     end
-    sh "cp #{header[0]} #{target}"
+    sh "cp -R #{header[0]} #{target}"
   end
 
   # Nginx module sources
