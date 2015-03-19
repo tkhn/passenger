@@ -3,8 +3,6 @@
 //  Distributed under the Boost Software License, Version 1.0. (See accompanying
 //  file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#define IN_ONCE_CPP
-
 #include <boost/thread/detail/config.hpp>
 #ifdef BOOST_THREAD_ONCE_ATOMIC
 #include "./once_atomic.cpp"
@@ -13,6 +11,7 @@
 #include <boost/thread/pthread/pthread_mutex_scoped_lock.hpp>
 #include <boost/thread/once.hpp>
 #include <boost/assert.hpp>
+#include <boost/throw_exception.hpp>
 #include <pthread.h>
 #include <stdlib.h>
 #include <memory>
@@ -69,6 +68,7 @@ namespace boost
             if(!data)
             {
                 data=malloc(sizeof(thread_detail::uintmax_atomic_t));
+                if(!data) BOOST_THROW_EXCEPTION(std::bad_alloc());
                 BOOST_VERIFY(!pthread_setspecific(epoch_tss_key,data));
                 *static_cast<thread_detail::uintmax_atomic_t*>(data)=BOOST_THREAD_DETAIL_UINTMAX_ATOMIC_MAX_C;
             }
