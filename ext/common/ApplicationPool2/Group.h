@@ -36,6 +36,7 @@
 #include <boost/make_shared.hpp>
 #include <boost/container/vector.hpp>
 #include <boost/atomic.hpp>
+#include <boost/move/core.hpp>
 #include <oxt/macros.hpp>
 #include <oxt/thread.hpp>
 #include <oxt/dynamic_thread_group.hpp>
@@ -315,7 +316,7 @@ public:
 				nEnabledProcessesTotallyBusy++;
 			}
 		}
-		return session;
+		return BOOST_MOVE_RET(SessionPtr, session);
 	}
 
 	bool pushGetWaiter(const Options &newOptions, const GetCallback &callback,
