@@ -1,6 +1,7 @@
 Release 5.0.7
 -------------
 
+ * Enable configuring ruby/nodejs/python executables for passenger standalone (nginx/builtin) through command line options --ruby, --nodejs, --python. Closes GH-1442.
 
 
 Release 5.0.6
