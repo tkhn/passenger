@@ -210,11 +210,13 @@ sudo apt-get install passenger-enterprise
 --------------------------------------------------------------
 endif::[]
 
+You can now proceed with a chapter for Deploying your (specific type of) application. 
+
 ifdef::nginx[]
 [[inserting_passenger_root_for_apt]]
 ==== Inserting `passenger_root` into nginx.conf
 
-During step 3 of the 'Installing packages' subsection, you were instructed to uncomment the <<PassengerRoot,passenger_root>> directive in `/etc/nginx/nginx.conf`. If there is no commented version in there, then you need to insert it yourself.
+If there is no <<PassengerRoot,passenger_root>> directive in `/etc/nginx/nginx.conf`, you can insert it yourself as follows:
 
 First, run the following command and take note of its output:
 
@@ -239,7 +241,6 @@ http {
 }
 -------------------------------------------------------------
 
-Once you're done editing nginx.conf, continue with step 4.
 endif::nginx[]
 
 
