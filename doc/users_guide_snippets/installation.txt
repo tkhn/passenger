@@ -130,12 +130,12 @@ sudo apt-get update
 --------------------------------------------------------------
 // Automatically upgrade packages from these (origin:archive) pairs
 Unattended-Upgrade::Allowed-Origins {
-        // See: "Origin:" and "Suite:" in
-        // "/var/lib/apt/lists/oss/oss-binaries.phusionpassenger.com_apt_passenger_dists_trusty_Release"
-        "Phusion:stable";
+  // To check "Origin:" and "Suite:", you could use e.g.: 
+  // grep "Origin\|Suite" /var/lib/apt/lists/oss-binaries.phusionpassenger.com*
+  "Phusion:stable";
 };
 --------------------------------------------------------------
-+
+
 ==== Installing packages
 
 ifdef::nginx[]
